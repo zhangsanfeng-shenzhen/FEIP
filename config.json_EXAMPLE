@@ -1,0 +1,6 @@
+{
+  "api_url": "192.168.1.225",
+  "api_port": "6178",
+  "current_block": "00000000cbe04361b1d6de82b893a7d8419e76e99dd2073ac0db2ba0e652eea8",
+  "rpc_server_uri": "http://ouxb:ouxb@192.168.1.192:8332"
+}
