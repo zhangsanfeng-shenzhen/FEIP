@@ -36,7 +36,7 @@ example:
 
 	url:port/get_all_tx
   
-	url:port/get_base_by_utxo
+	url:port/get_base_by_utxo?utxo=d54cb03ede7fd27fbacca0595b9e9a31e06c2023afaa1be83e9c1078c7b4cd45
 
 
 
