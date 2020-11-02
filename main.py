@@ -24,6 +24,7 @@ import FEIP9
 logging.basicConfig(level=logging.INFO)
 
 def decode_opreturn_msg(tx, block):
+	address = None
 	for t in tx["vin"]:
 		if "scriptSig" in t and "asm" in t["scriptSig"]:
 			public_key = t["scriptSig"]["asm"].split("[ALL|FORKID] ")[-1]
