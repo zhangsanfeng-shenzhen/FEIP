@@ -24,7 +24,6 @@ class Base(BaseModel):
 	freecash_address = CharField(max_length=34)
 	freecash_height = CharField(max_length=8)
 	freecash_time = CharField(max_length=20)
-	freecash_language = CharField(max_length=32)
 	freecash_utxo = CharField(max_length=64)
 	freecash_vote = CharField(max_length=32)
 	freecash_percent = CharField(max_length=8)
@@ -56,7 +55,7 @@ def check_format(op_return_msg):
 		return None
 	if opreturn[1] != "9":
 		return None
-	if len(opreturn)<4:
+	if len(opreturn)!=8:
 		return None
 	return opreturn
 	
@@ -66,7 +65,6 @@ def asm_type(base):
 		"address" : base.freecash_address,
 		"height" : base.freecash_height,
 		"time" : base.freecash_time,
-		"language" : base.freecash_language,
 		"utxo" : base.freecash_utxo,
 		"vote" : base.freecash_vote,
 		"percent" : base.freecash_percent,
@@ -74,13 +72,12 @@ def asm_type(base):
 		"note" : base.freecash_note
 	}
 
-def set_database(txid, address, height, local_time, language, utxo, vote, percent, tag, note):
+def set_database(txid, address, height, local_time, utxo, vote, percent, tag, note):
 	Base.create_table()
 	Base.create(
 		freecash_txid = txid,
 		freecash_address = address,
 		freecash_height = height,
-		freecash_language = language,
 		freecash_time = local_time,
 		freecash_utxo = utxo,
 		freecash_vote = vote,
@@ -96,7 +93,7 @@ def set_db_by_asm(asm, txid, address, block):
 		data = check_format(code)
 		if data is not None:
 			set_database(txid, address, block['height'], block['mediantime'], 
-				data[3], data[4], data[5], data[6], data[7], data[8])
+				data[3], data[4], data[5], data[6], data[7])
 
 def get_db_by_utxo(utxo):
 	freers = {}
