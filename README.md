@@ -38,6 +38,12 @@ example:
   
 	url:port/get_base_by_utxo?utxo=d54cb03ede7fd27fbacca0595b9e9a31e06c2023afaa1be83e9c1078c7b4cd45
 
+my example:
+	http://47.115.137.45:6178/get_all_tx
+	
+	http://47.115.137.45:6178/get_base_by_utxo?utxo=d54cb03ede7fd27fbacca0595b9e9a31e06c2023afaa1be83e9c1078c7b4cd45
+	
+
 
 
 	
